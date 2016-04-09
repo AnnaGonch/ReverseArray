@@ -1,24 +1,25 @@
 package it.sevenbits.packages.reverse;
 
-import it.sevenbits.packages.Generics.MyArrayGeneric;
-import it.sevenbits.packages.Interface.IReverseArrayInterface;
+import it.sevenbits.packages.generics.MyArrayGeneric;
+import it.sevenbits.packages.interfaces.IReverseArrayInterface;
 
 /**
- * Provides reversing for array of integer
+ * Provides reversing for array
  *
  */
  public class ReverseArray implements IReverseArrayInterface {
     /**
-     * Revers integer array
-     * @param array of integer
-     * @return reversed array of integer
+     * reverseArray method
+     * @param array reverse
+     * @param <T> type
+     * @return array reverse
      */
-     public MyArrayGeneric<?> reverseArray(final MyArrayGeneric<?> array) {
-        Object tmp;
-        for (int i = 0; i < array.getSize() / 2 ; ++i) {
+     public <T> MyArrayGeneric<T> reverseArray(final MyArrayGeneric<T> array)  {
+        T tmp;
+        for (int i = 0; i < array.getLength() / 2 ; ++i) {
             tmp = array.getElemArray(i);
-            array.setElemArray(i, array.getElemArray(array.getSize() - i - 1));
-            array.setElemArray(array.getSize() - i - 1, tmp);
+            array.setElemArray(i, array.getElemArray(array.getLength() - i - 1));
+            array.setElemArray(array.getLength() - i - 1, tmp);
         }
         return array;
     }
