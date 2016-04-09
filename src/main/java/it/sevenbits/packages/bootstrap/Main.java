@@ -21,25 +21,21 @@ final class Main {
     /**
      * main method
      * @param args incoming argument
-     * @throws EmptyArrayException hh
      */
-    public static void main(final String[] args) throws EmptyArrayException {
+    public static void main(final String[] args) {
 
         //Integer []intArray = new Integer[] { 1, 2, 3, 4, 5 };
         String []stringArray = new String[]{"1", "2", "3" , "4", "5"};
         //String []stringArray = new String[]{};
         MyArrayGeneric<String> array = new MyArrayGeneric<String>(stringArray);
         try {
-            if (array.isEmpty()) {
-                throw new EmptyArrayException();
-            }
             for (int i = 0; i < array.getLength(); i++) {
                 System.out.println(array.getElemArray(i));
             }
-            ReverseArray object = new ReverseArray();
+            ReverseArray reverser = new ReverseArray();
 
 
-            object.reverseArray(array);
+            reverser.reverseArray(array);
             for (int i = 0; i < array.getLength(); i++) {
                 System.out.println(array.getElemArray(i));
             }

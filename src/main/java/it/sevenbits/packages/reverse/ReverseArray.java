@@ -2,6 +2,7 @@ package it.sevenbits.packages.reverse;
 
 import it.sevenbits.packages.generics.MyArrayGeneric;
 import it.sevenbits.packages.interfaces.IReverseArrayInterface;
+import it.sevenbits.packages.myException.EmptyArrayException;
 
 /**
  * Provides reversing for array
@@ -12,9 +13,13 @@ import it.sevenbits.packages.interfaces.IReverseArrayInterface;
      * reverseArray method
      * @param array reverse
      * @param <T> type
+     * @throws EmptyArrayException exception
      * @return array reverse
      */
-     public <T> MyArrayGeneric<T> reverseArray(final MyArrayGeneric<T> array)  {
+     public <T> MyArrayGeneric<T> reverseArray(final MyArrayGeneric<T> array) throws EmptyArrayException  {
+         if (array.isEmpty()) {
+             throw new EmptyArrayException();
+         }
         T tmp;
         for (int i = 0; i < array.getLength() / 2 ; ++i) {
             tmp = array.getElemArray(i);
