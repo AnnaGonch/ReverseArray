@@ -1,5 +1,5 @@
 /**
  * ReverseArray class
- * Provides reversing for array of integer
+ * Provides reversing for array
  */
 package it.sevenbits.packages.reverse;
