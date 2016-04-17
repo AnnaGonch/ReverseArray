@@ -9,6 +9,7 @@ import it.sevenbits.packages.interfaces.IArrayGenericInterface;
 public class MyArrayGeneric<T> implements IArrayGenericInterface <T> {
 
     private T[] elementData;
+
     /**
      *MyArrayGeneric constructor
      * @param c array
