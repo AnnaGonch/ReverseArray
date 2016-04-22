@@ -1,4 +1,5 @@
-import it.sevenbits.packages.generics.MyArrayGeneric;
+package it.sevenbits.packages.generics;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

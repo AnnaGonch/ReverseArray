@@ -1,6 +1,7 @@
+package it.sevenbits.packages.reverse;
+
 import it.sevenbits.packages.generics.MyArrayGeneric;
 import it.sevenbits.packages.myException.EmptyArrayException;
-import it.sevenbits.packages.reverse.ReverseArray;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,16 +19,15 @@ public class ReverseArrayTest {
         tester = new ReverseArray();
     }
     @Test
-    public void testReverseArrayInteger() {
+    public void testReverseArrayInteger() throws EmptyArrayException {
         Integer []intArray = new Integer[] { 1, 2, 3, 4, 5 };
         Integer []intArrayReverse = new Integer[]{ 5, 4, 3, 2, 1 };
         MyArrayGeneric<Integer> array = new MyArrayGeneric<Integer>(intArray);
-        MyArrayGeneric<Integer> arrayReverse = new MyArrayGeneric<Integer>(intArray);
-        try {
+        MyArrayGeneric<Integer> arrayReverse;
+
+
             arrayReverse=tester.reverseArray(array);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
         Integer[] arrayTester = new Integer[arrayReverse.getLength()];
         for (int i=0; i < arrayTester.length; i++)
             arrayTester[i] = arrayReverse.getElemArray(i);
@@ -36,16 +36,14 @@ public class ReverseArrayTest {
     }
 
     @Test
-    public void testReverseArrayString() {
+    public void testReverseArrayString() throws EmptyArrayException {
         String []strArray = new String[] { "1", "2", "3", "4", "5" };
         String []strArrayReverse = new String[]{ "5", "4", "3", "2", "1" };
         MyArrayGeneric<String> array = new MyArrayGeneric<String>(strArray);
-        MyArrayGeneric<String> arrayReverse = new MyArrayGeneric<String>(strArray);
-        try {
+        MyArrayGeneric<String> arrayReverse;
+
             arrayReverse=tester.reverseArray(array);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
         String[] arrayTester = new String[arrayReverse.getLength()];
             for (int i=0;i<arrayTester.length;i++)
             arrayTester[i] = arrayReverse.getElemArray(i);
@@ -53,18 +51,15 @@ public class ReverseArrayTest {
         assertArrayEquals("wrong reverse",strArrayReverse,arrayTester);
     }
 
-    @Test
-    public void testReverseEmptyArray(){
+    @Test(expected = EmptyArrayException.class)
+    public void testReverseEmptyArray() throws EmptyArrayException {
         String []strArray = new String[] {};
         String []strArrayReverse = new String[]{};
         MyArrayGeneric<String> array = new MyArrayGeneric<String>(strArray);
-        MyArrayGeneric<String> arrayReverse = new MyArrayGeneric<String>(strArrayReverse);
+        MyArrayGeneric<String> arrayReverse;
 
-        try {
             arrayReverse=tester.reverseArray(array);
-        } catch (EmptyArrayException e) {
-            e.printStackTrace();
-        }
+
         String[] arrayTester = new String[arrayReverse.getLength()];
         for (int i=0;i<arrayTester.length;i++)
             arrayTester[i] = arrayReverse.getElemArray(i);
